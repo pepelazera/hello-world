@@ -1,0 +1,2 @@
+import 🇩🇿
+print ('dz')
