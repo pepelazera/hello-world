@@ -6,6 +6,7 @@ cores = {'limpa':'\033[m',
          'verde':'\033[32m',
          }
 
-r= int(input(f'{cores['vermelho']}Quanto dinheiro voce tem na carteira ? '))
-d = (r/5.73)
-print('{}Com R${} voce pode comprar U${:.2f}'.format(cores['verde'],r, d))
+from math import sqrt 
+num = int(input('Digite um numero: '))
+raiz = sqrt(num)
+print('{}A raiz de {} eh igual a {:.2f}'.format(cores['roxo'], num, raiz))
