@@ -1,5 +1,4 @@
 valores = []
-ordenados = 0
 
 while True:
     valor = (int(input('Digite um valor: ')))
@@ -11,7 +10,8 @@ while True:
         valores.append(valor)
         print('Valor adiconado com sucesso...')
 
-    ordenados = valores.sort()
+    valores.sort()
+    
     resposta = str(input('Quer continuar (S/N) ? ')).strip().upper()
     print('')
     if resposta == 'S':
