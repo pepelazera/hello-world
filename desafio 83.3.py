@@ -11,7 +11,7 @@ for simb in expr:
             lista.append(')') # Caso a pilha esteja vazia ele adiciona um fechamento de parênteses 
             break
 
-if len(lista) == 0:
+if len(lista) == 0: # Essa expressão significa que cada parêntese que abriu teve sua relação com o parêntese que fechou, sem nenhum estar incompleto
     print('Sua expressão está válida!')
 else:
     print('Sua expressão está inválida!')
