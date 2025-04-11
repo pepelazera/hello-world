@@ -1,22 +1,12 @@
-valores = []
+lista = []
 
-for count in range(1,6):
-    valores.append(int(input(f'Digite um valor na posição {count}: ')))
+for n in range(0, 5):
+    numero = int(input(f'Digite um número para a posição {n}: '))
+    lista.append(numero)
 
-maiorvalor = max(valores)
-menorvalor = min(valores)
 
-posicaomaior = []
-for c, v in enumerate(valores):
-    if maiorvalor == v:
-        posicaomaior.append(c+1)
-
-posicaomenor = []
-for c, v in enumerate(valores):
-    if menorvalor == v :
-        posicaomenor.append(c+1)
-
-print('-=' * 20)
-print('Você digitou os valores',', '.join(map(str, valores)))
-print(f'O maior valor foi {maiorvalor}, encontrado na posição', ', '.join(map(str, posicaomaior)))
-print(f'O menor valor foi {menorvalor}, encontrado na posição', ', '.join(map(str, posicaomenor)))
+posicaomaior = lista.index(max(lista))
+posicaomenor = lista.index(min(lista))
+print('Você digitou os valores', ' '.join((map(str, lista))))
+print(f'O maior valor digitado foi {max(lista)} na posição {posicaomaior}.')
+print(f'O menor valor digitado foi {min(lista)} na posição {posicaomenor}.')
