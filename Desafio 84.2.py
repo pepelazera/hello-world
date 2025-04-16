@@ -1,32 +1,30 @@
-temp = []
-princ = []
-mai = men = 0
+nome = []
+peso = []
 
-while True: 
-    temp.append(str(input('Nome: ')))
-    temp.append(float(input('Peso: ')))
-    if len(princ) == 0:
-        mai = men = temp[1]
-    else:
-        if temp[1] > mai:
-            mai = temp[1]
-        if temp[1] < men:
-            men = temp[1]
-    princ.append(temp[:])
-    temp.clear() # Limpa o temp para não ficar repetindo dados
+maiorpeso = float('-inf')
+menorpeso = float('inf')
 
-    resp = str(input('Quer continuar ? (S/N): '))
-    if resp in 'Nn':
+while True:
+    pessoa = str(input('Nome: '))
+    nome.append(pessoa)
+    massa = float(input('Peso: '))
+    peso.append(massa)
+
+    if massa > maiorpeso:
+        maiorpeso = massa
+    elif massa < menorpeso:
+        menorpeso = massa
+
+    resp = str(input('Quer continuar ? (S/N): ')).strip().upper()
+
+    if resp == 'N':
         break
 
-print('')
-print(f'Ao todo, você cadastrou {len(princ)} pessoas.')
-print(f'O maior peso foi {mai} Kg. Peso de ', end=' ')
-for p in princ:
-    if p[1] == mai:
-        print(f'{p[0]}', end=' ')
-print(f'\nO menor peso foi {men} Kg. Peso de', end='')
-for p in princ:
-    if p[1] == men:
-        print(f'{p[0]}', end=' ')
-print()
+maiorpesoencontrado = peso.index(maiorpeso)
+pessoamaiorpeso = nome[maiorpesoencontrado]
+menorpesoencontrado = peso.index(menorpeso)
+pessoamenorpeso = nome[menorpesoencontrado]
+
+print(f'Ao todo, foram cadastradas {len(nome)} pessoas')
+print(f'O maior peso registrado foi de {maiorpeso} Kg e foi de {pessoamaiorpeso}.')
+print(f'O menor peso registrado foi de {menorpeso} Kg e foi de {pessoamenorpeso}.')
