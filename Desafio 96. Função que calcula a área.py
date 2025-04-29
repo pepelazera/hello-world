@@ -6,7 +6,7 @@ def area():
     largura = float(input('Largura: '))
     comprimento = float(input('Comprimento: '))
     A = largura * comprimento
-    print(f'A área de um terreno de {largura}x{comprimento} é de {A:.2f}m2')
+    print(f'A área de um terreno de {largura}x{comprimento} é de {A:.2f}m².')
 
 
 area()
