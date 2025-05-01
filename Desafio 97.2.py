@@ -1,10 +1,9 @@
-def mensagem(msg):
-    tam = len(msg) + 4
-    print('~' * tam)
-    print(f'  {msg}')
-    print('~' * tam)
+def titulo(txt):
+    print('~'*len(txt))
+    print(txt)
+    print('~'*len(txt))
 
 # Programa principal
-print('Gustavo Guanabara')
-print('Curso de Python no Youtube')
-print('CeV')
+titulo('Gustavo Guanabara')
+titulo('Curso de Python no Youtube')
+titulo('CeV')
