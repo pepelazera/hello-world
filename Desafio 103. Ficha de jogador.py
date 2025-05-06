@@ -18,4 +18,4 @@ if n.strip() == '':
     ficha(gol=g)
 else:
     ficha(n, g)
-help(ficha)
+    
