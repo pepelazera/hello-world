@@ -1,4 +1,5 @@
 from utilidadescev import moeda
+from utilidadescev import dados
 
-p = float(input("Digite o preço: R$"))
-moeda.resumo(p, 20, 10)
+p = dados.leiadinheiro("Digite um valor: R$")
+moeda.resumo(p, 5, 14)
