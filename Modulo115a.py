@@ -6,9 +6,11 @@ def menu(msg):
 
 def options(msg):
     print(msg)
+    
 
 def linha():
     print("-"*55)
+    
 
 def resp(txt):
     while True:
