@@ -30,3 +30,6 @@ def resp(txt):
                     break
         except (ValueError, TypeError):
             print("\033[31mERRO: por favor, digite um número válido.\033[m")
+        except KeyboardInterrupt:
+            print("\033[34mO usuário preferiu não informar os dados.\033[m")
+            break
