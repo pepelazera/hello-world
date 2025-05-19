@@ -1,3 +1,6 @@
+from time import sleep
+
+
 def leiaint(msg):
     while True:
         try:
@@ -11,20 +14,24 @@ def leiaint(msg):
         else:
             return n
 
-def linha(tam=55):
-    return "-"*tam
 
-def cabecalho(txt):
-    print(linha())
+def linha():
+    print("-"*55)
+
+
+def menu(txt):
+    linha()
     print(txt.center(55))
-    print(linha())
+    linha()
 
-def menu(lista):
-    cabecalho("MENU PRINCIPAL")
-    c = 1
-    for item in lista:
-        print(f"\033[33m{c}\033[m - \033[34m{item}\033[m")
-        c += 1
-    print(linha())
-    opc = leiaint("\033[32mSua opção: \033[m")
-    return opc
+
+def opc(txt):
+    print(txt)
+    linha()
+
+
+def interface():
+    print("\033[33m 1 - \033[34m Ver pessoas cadastradas\033[m")
+    print("\033[33m 2 - \033[34m Cadastrar novas pessoas\033[m")
+    print("\033[33m 3 - \033[34m Sair do sistema\033[m")
+    linha()

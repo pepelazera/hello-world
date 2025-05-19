@@ -4,19 +4,37 @@ from sistema import *
 
 arq = "cursoemvideo.txt"
 
-if not arquivoextiste(arq):
+if arquivoexiste(arq):
+    print("Arquivo encontrado!")
+else:
+    print("Arquivo não encontrado.")
     criararquivo(arq)
 
+menu("PESSOAS CADASTRADAS")
+interface()
 
 while True:
-    resp = menu(["Ver pessoas cadastradas", "Cadastrar nova Pessoa", "Sair do sistema"])
-    if resp == 1:
-        lerarquivo(arq)
-    elif resp == 2:
-        cabecalho("Opção 2")
-    elif resp == 3:
-        cabecalho(f"Saindo do sistema... Até mais!")
+    try:
+        resp = int(input("\033[32mSua opção: \033[m"))
+        if resp == 1:
+            #Opção de listar o conteúdo de um arquivo.
+            lerarquivo(arq)
+        elif resp == 2:
+            linha()
+            print("Opção 2".center(55))
+            linha()
+            nome = str(input("Nome: "))
+            idade = leiaint("Idade: ")
+            cadastraralguem(arq, nome, idade)
+            linha()
+        elif resp == 3:
+            linha()
+            print("Saindo do sistema... Até logo!".center(55))
+            linha()
+            break
+    except (ValueError, TypeError):
+        print("\033[31mERRO: por favor, digite uma opção válida.\033[m")
+    except KeyboardInterrupt:
+        print("\033[33mO usuário não escolheu nenhuma opção.\033[m")
         break
-    else:
-        print("\033[31mERRO: digite uma opção válida.\033[m")
     sleep(1)

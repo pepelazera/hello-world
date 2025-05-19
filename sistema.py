@@ -1,7 +1,8 @@
 from Modulo115 import *
-def arquivoextiste(nome):
+
+def arquivoexiste(arq):
     try:
-        a = open(nome, "rt")
+        a = open(arq, "rt")
         a.close()
     except FileNotFoundError:
         return False
@@ -9,21 +10,40 @@ def arquivoextiste(nome):
         return True
 
 
-def criararquivo(msg):
+def criararquivo(arq):
     try:
-        a = open(msg, "wt+") # Escreve um arquivo de texto, e caso não exista, ele cria um
+        a = open(arq, "wt+")
         a.close()
     except:
         print("Houve um erro na criação do arquivo.")
     else:
-        print(f"Arquivo {msg} criado com sucesso!")
+        print(f"Arquivo {arq} criado com sucesso!")
 
 
-def lerarquivo(nome):
+def lerarquivo(arq):
     try:
-        a = open(nome, "rt")
-    except:
-        print("Erro ao ler o arquivo.")
+        a = open(arq,"rt")
+    except FileNotFoundError:
+        print("Erro ao ler arquivo.")
     else:
-        cabecalho("PESSOAS CADASTRADAS")
+        menu("PESSOAS CADASTRADAS")
         print(a.read())
+    finally:
+        a.close()
+
+
+def cadastraralguem(arq, nome="desconhecido", idade=0):
+    try:
+        a = open(arq, "at")
+        a.close()
+
+    except:
+        print("Houve um problema na abertura do arquivo.")
+    else:
+        try:
+            a.write(f"{nome};{idade}\n")
+        except:
+            print("Houve um erro na hora de escrever os dados.")
+        else:
+            print(f"Novo registro {nome} adicionado.")
+            a.close()
