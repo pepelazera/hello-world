@@ -1,5 +1,4 @@
-Ana: 22
-Gustavo: 36
-Pedro: 19
-Paulo: 15
-Jose: 25
+Pedro;19
+Manuela;18
+Luizi;18
+Alvaro;18
