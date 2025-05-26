@@ -15,7 +15,7 @@ while True:
                 "\033[32m[4] \033[35mSair do programa\033[m")
         linha()
         try:
-                resp = int(input("\033[32mSua opção: "))
+                resp = int(input("\033[32mSua opção: \033[m"))
                 if resp == 1:
                         menu("\033[35mCadastrar uma nova pessoa\033[m")
                         nome = str(input("\033[32mNome: \033[m"))
