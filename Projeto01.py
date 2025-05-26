@@ -8,27 +8,31 @@ else:
         print(f"Arquivo {arq} encontrado com sucesso!")
 
 while True:
-        menu("Banco de dados")
-        options("[1] Cadastrar uma pessoa\n"
-                "[2] Ver cadastros salvos em .txt\n"
-                "[3] Ver os cadastros salvos em .json\n"
-                "[4] Sair do programa")
+        menu("\033[35mBanco de dados\033[m")
+        options("\033[32m[1] \033[35mCadastrar uma pessoa\033[m\n"
+                "\033[32m[2] \033[35mVer cadastros salvos em .txt\033[m\n"
+                "\033[32m[3] \033[35mVer os cadastros salvos em .json\033[m\n"
+                "\033[32m[4] \033[35mSair do programa\033[m")
         linha()
         try:
-                resp = int(input("Sua opção: "))
+                resp = int(input("\033[32mSua opção: "))
                 if resp == 1:
-                        menu("Cadastrar uma nova pessoa")
+                        menu("\033[35mCadastrar uma nova pessoa\033[m")
+                        nome = str(input("\033[32mNome: \033[m"))
+                        idade = leiaint("\033[32mIdade: \033[m")
+                        cadastrarpessoa(arq, nome, idade)
                 elif resp == 2:
-                        menu("Ver cadastros salvos em .txt")
+                        menu("\033[35mVer cadastros salvos em .txt\033[m")
+                        lerarquivo(arq)
                 elif resp == 3:
-                        menu("Ver cadastros salvos em .json")
+                        menu("\033[35mVer cadastros salvos em .json\033[m")
                 elif resp == 4:
-                        print("Saindo do programa...")
+                        print("\033[33mSaindo do programa...\033[m")
                         break
                 elif resp > 4:
-                        print("ERRO: por favor, digite uma opção válida.")
+                        print("\033[31mERRO: por favor, digite uma opção válida.\033[m")
         except (ValueError, TypeError):
-                print("ERRO: por favor, digite um número que seja válido.")
+                print("\033[31mERRO: por favor, digite um número que seja válido.\033[m")
         except KeyboardInterrupt:
-                print("O usuário não escolheu nenhuma opção.")
+                print("\033[33mO usuário não escolheu nenhuma opção.\033[m")
                 break
