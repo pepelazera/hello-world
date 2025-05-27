@@ -1,0 +1,8 @@
+A nota de matematica foi 7.8
+A nota de portugues foi 8.2
+A nota de filosofia foi 9.5
+A nota de historia foi 5.7
+A nota de fisica foi 9.8
+A nota de geografia foi 10
+A nota de quimica foi 6.4
+A nota de biologia foi 7.0
