@@ -1,5 +1,5 @@
-from Modulo01 import *
 from arquivoTXT import *
+from arquivoJSon import *
 
 arq = "arquivoteste.txt"
 if not arquivoexiste(arq):
@@ -15,7 +15,7 @@ while True:
                 "\033[32m[4] \033[35mSair do programa\033[m")
         linha()
         try:
-                resp = int(input("\033[32mSua opção: \033[m"))
+                resp = int(input("\033[32mSua opção: "))
                 if resp == 1:
                         menu("\033[35mCadastrar uma nova pessoa\033[m")
                         nome = str(input("\033[32mNome: \033[m"))
@@ -26,6 +26,7 @@ while True:
                         lerarquivo(arq)
                 elif resp == 3:
                         menu("\033[35mVer cadastros salvos em .json\033[m")
+                        dic()
                 elif resp == 4:
                         print("\033[33mSaindo do programa...\033[m")
                         break
