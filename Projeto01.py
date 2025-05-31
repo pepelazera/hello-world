@@ -37,3 +37,4 @@ while True:
         except KeyboardInterrupt:
                 print("\033[33mO usuário não escolheu nenhuma opção.\033[m")
                 break
+                
