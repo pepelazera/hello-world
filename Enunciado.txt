@@ -1,0 +1,10 @@
+Desafio 1 — Lista de Compras Simples
+Objetivo: Criar um programa que:
+
+Solicite ao usuário que digite 5 itens de uma lista de compras.
+
+Salve os itens em um arquivo chamado compras.txt, um por linha.
+
+Depois, leia e mostre no terminal todos os itens digitados.
+
+Dica: Use modo write e depois read.
