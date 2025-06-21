@@ -8,3 +8,4 @@ for e in brasil:
     for k, v in e.items():
         print(v, end=' ')
     print()
+    
