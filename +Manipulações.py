@@ -1,3 +1,5 @@
+from ex03 import *
+
 # Para ler mensagens simples
 with open("email.txt", "r") as arquivo:
     email = arquivo.read()

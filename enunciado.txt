@@ -1,0 +1,25 @@
+Desafio 3:
+
+    Etapa 1 — Criar a lista
+    O programa vai ficar perguntando:
+
+    "O que você quer comprar e quantos?"
+
+    Etapa 2 — Salvar no arquivo
+        Cada vez que você digitar um item, o programa vai guardar isso no arquivo compras.txt, igual a um caderno de anotações.
+
+    Etapa 3 — Ler e organizar
+        Depois de terminar a lista:
+
+        O programa vai ler tudo que está no arquivo;
+
+        Vai colocar os itens em ordem alfabética (por exemplo: "arroz", "feijão", "leite"...);
+
+        Vai mostrar cada item com a quantidade:
+
+        Você precisa comprar 5 pães
+        Você precisa comprar 3 maçãs
+
+        No final, ele vai somar tudo e dizer:
+
+        No total, você precisa comprar 18 itens.

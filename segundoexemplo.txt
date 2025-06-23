@@ -1,2 +1,5 @@
 5  bananas
 12  uvas
+
+3 paes
+4 ovos
