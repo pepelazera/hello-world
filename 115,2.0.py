@@ -30,3 +30,4 @@ while True:
     except KeyboardInterrupt:
         print("\033[33mO usuário não digitou nenhum valor.\033[m")
     sleep(1)
+    
