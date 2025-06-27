@@ -1,6 +1,7 @@
 import pandas as pd
 from flask import Flask, jsonify
 
+
 app = Flask(__name__)
 
 
@@ -20,4 +21,3 @@ def vendas():
 
 # Rodar a nossa api
 app.run(host="0.0.0.0")
-
