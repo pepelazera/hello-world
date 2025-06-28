@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Vendas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .main-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            min-width: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-button:active {
+            transform: translateY(0);
+        }
+
+        .main-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .main-button:hover::before {
+            left: 100%;
+        }
+
+        .result-section {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-text {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #4ecdc4;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #4ecdc4;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { 
+                transform: rotate(360deg); 
+            }
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 15px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .error-text {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .success-text {
+            color: #4ecdc4;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .main-button {
+                min-width: 180px;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Dashboard de Vendas</h1>
+        <p class="subtitle">Visualize o total de vendas da sua empresa</p>
+        
+        <button id="btn-ver-vendas" class="main-button">
+            💰 Ver Total de Vendas
+        </button>
+        
+        <div id="resultado-section" class="result-section">
+            <div id="resultado-texto" class="result-text"></div>
+            <button id="btn-voltar" class="back-button">
+                ← Voltar ao Início
+            </button>
+        </div>
+
+        <div class="info-box">
+            <strong>💡 Como funciona:</strong><br>
+            Clique no botão acima para buscar o total de vendas da sua base de dados.
+        </div>
+    </div>
+
+    <script>
+        // Elementos do DOM
+        const btnVerVendas = document.getElementById('btn-ver-vendas');
+        const btnVoltar = document.getElementById('btn-voltar');
+        const resultadoSection = document.getElementById('resultado-section');
+        const resultadoTexto = document.getElementById('resultado-texto');
+
+        // Função para buscar total de vendas
+        async function buscarTotalVendas() {
+            // Mostra loading
+            resultadoTexto.innerHTML = '<span class="loading-spinner"></span>Carregando dados...';
+            
+            try {
+                console.log('🔄 Iniciando busca de dados...');
+                
+                // Faz a requisição para a API local
+                const resposta = await fetch('http://localhost:5000/pegarvendas');
+                
+                console.log('📡 Resposta recebida:', resposta.status);
+                
+                if (!resposta.ok) {
+                    throw new Error(`Erro HTTP: ${resposta.status}`);
+                }
+                
+                const dados = await resposta.json();
+                console.log('📊 Dados recebidos:', dados);
+                
+                if (dados.error) {
+                    throw new Error(dados.error);
+                }
+                
+                // Formata o valor em moeda brasileira
+                const valorFormatado = Number(dados.total_vendas).toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                });
+                
+                // Exibe o resultado
+                resultadoTexto.innerHTML = `
+                    <span class="success-text">
+                        💰 Total de Vendas: ${valorFormatado}
+                    </span>
+                `;
+                
+                console.log('✅ Dados exibidos com sucesso!');
+                
+            } catch (erro) {
+                console.error('❌ Erro ao buscar dados:', erro);
+                
+                // Exibe mensagem de erro amigável
+                let mensagemErro = 'Erro ao carregar dados';
+                
+                if (erro.message.includes('Failed to fetch')) {
+                    mensagemErro = 'Não foi possível conectar com o servidor. Verifique se a API está rodando.';
+                } else if (erro.message.includes('HTTP')) {
+                    mensagemErro = 'Erro no servidor. Verifique os dados e tente novamente.';
+                } else {
+                    mensagemErro = erro.message;
+                }
+                
+                resultadoTexto.innerHTML = `
+                    <span class="error-text">
+                        ❌ ${mensagemErro}
+                    </span>
+                `;
+            }
+        }
+
+        // Função para voltar ao início
+        function voltarAoInicio() {
+            btnVerVendas.style.display = 'block';
+            resultadoSection.style.display = 'none';
+            resultadoTexto.innerHTML = '';
+            console.log('🔄 Voltou ao início');
+        }
+
+        // Event listeners
+        btnVerVendas.addEventListener('click', async function() {
+            console.log('🖱️ Botão "Ver Vendas" clicado');
+            
+            // Esconde o botão principal e mostra a seção de resultado
+            btnVerVendas.style.display = 'none';
+            resultadoSection.style.display = 'block';
+            
+            // Busca os dados
+            await buscarTotalVendas();
+        });
+
+        btnVoltar.addEventListener('click', function() {
+            console.log('🖱️ Botão "Voltar" clicado');
+            voltarAoInicio();
+        });
+
+        // Log inicial
+        console.log('🚀 Dashboard de Vendas carregado!');
+        console.log('🔗 Tentará conectar em: http://localhost:5000/pegarvendas');
+    </script>
+</body>
+</html>
+
