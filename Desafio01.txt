@@ -1,0 +1,10 @@
+Criar um arquivo JSON com dados de usuários
+    Desafio:
+
+    Peça ao usuário para digitar nome e idade
+
+    Crie um dicionário com essas informações
+
+    Salve tudo dentro de uma lista de usuários em um arquivo usuarios.json
+
+    Se o arquivo já existir, leia os dados antes de adicionar o novo usuário (ou seja, não apague o que já tinha)       
