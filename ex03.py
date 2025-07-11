@@ -6,6 +6,7 @@ def criarquivo(txt):
     with open(arq, "a") as arquivo:
         arquivo.write(txt)
 
+
 #Programa principal
 while True:
 
