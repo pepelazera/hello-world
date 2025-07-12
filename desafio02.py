@@ -1,8 +1,8 @@
 def leia_vogal(f):
-    c_vogal = 1
-    for l in enumerate(f):
-        if "aeiou" in l:
-            c_vogal += l
+    c_vogal = 0
+    for letra in f:
+        if letra in "aeiou":
+            c_vogal += 1
     print(f"Existem {c_vogal} vogais na frase.")
 
 
