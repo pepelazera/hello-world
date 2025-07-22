@@ -1,9 +1,13 @@
-def lernomes():
+def leia_nome():
     with open("nomes.txt", "r") as arquivo:
-       linhas = [linha.strip() for linha in arquivo.readlines()]
-    nome = sorted(linhas)
-    return nome
+        a = arquivo.readlines()
+        a2 = []
+        for linha in a:
+            if linha.strip() != "":
+                a2.append(linha.strip())
+        a3 = sorted(a2)
+    return a3
 
 # Programa principal
-nomes = lernomes()
-print('\n'.join(nomes))
+nome = leia_nome()
+print('\n'.join(nome))
