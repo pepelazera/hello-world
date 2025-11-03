@@ -7,10 +7,6 @@ voos = {
 }
 
 reservas = []
-novoVoo = {
-
-}
-
 
 def gerar_Reserva():
     return str(random.randint(10000, 999999))
@@ -88,5 +84,4 @@ def cadastrar_voo(num_voo, destino):
 
     voos[num_voo] = {'destino': destino, 'assentos': num_assentos}
 
-    print(f"{nome_Passageiro}")
     return f"Voo {num_voo} para {destino} ({num_assentos} assentos) cadastrado com sucesso!"
