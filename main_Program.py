@@ -1,16 +1,18 @@
 from sistemaT2 import *
-
-
 while True:
-    print("\n--- Sistema de Reservas ---")
-    print("1. Fazer reserva")
-    print("2. Cadastrar novo voo")
-    print("3. Listar voos")
-    print("4. Sair")
+    try:
+        print("\n--- Sistema de Reservas ---")
+        print("1. Fazer reserva")
+        print("2. Cadastrar novo voo")
+        print("3. Listar voos")
+        print("4. Cancelar reserva")
+        print("5. Encerrar sistema")
+
+    except (ValueError, TypeError):
+        print("ERRO: Opcao Invalida.")
 
 
     opcao = int(input("Escolha uma opção: "))
-
 
     match opcao:
         case 1:
@@ -27,7 +29,7 @@ while True:
             num = input("Número do novo voo: ")
             dest = input("Destino do voo: ")
 
-            resultado = cadastrar_voo(nome, num, dest)
+            resultado = cadastrar_voo(num, dest)
             print(resultado)
 
         case 3:
@@ -35,6 +37,12 @@ while True:
             print(listar_voos())
 
         case 4:
+            print("\n--- Cancelar Reserva ---")
+            codigo = input("Digite o código da reserva para cancelar: ")
+            resultado = cancelar_reserva(codigo)
+            print(resultado)
+
+        case 5:
             print("Saindo do sistema...")
             break
 
