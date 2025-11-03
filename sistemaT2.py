@@ -9,13 +9,13 @@ voos = {
 reservas = []
 
 def gerar_Reserva():
-    return str(random.randint(10000, 999999))
+    return str(random.randint(10000, 999999)) # str ou String = palavra
 
 
 def fazer_reserva(nome, numero_voo, classe):
     while True:
         if numero_voo not in voos:
-            print("voo nao encontrado.")
+            print("ERRO: voo nao encontrado.")
             return
 
         elif classe not in "economica".strip().upper() and classe not in "econômica"\
@@ -78,9 +78,6 @@ def cadastrar_voo(num_voo, destino):
         num_assentos = random.randint(10, 15)
     except (ValueError, TypeError):
         return "Erro: A quantidade de assentos deve ser um número."
-
-    if num_assentos < 0:
-        return "Erro: A quantidade de assentos não pode ser negativa."
 
     voos[num_voo] = {'destino': destino, 'assentos': num_assentos}
 
