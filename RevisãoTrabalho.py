@@ -44,10 +44,11 @@ while True:
                 print(f"Nome de usuário: {infoConta['nome']}\n"
                       f"Número da conta: {infoConta['numero']}\n"
                       f"Tipo da conta: {infoConta['tipo']}")
-                print(f"Sado: R${saldoConta:.2f}")
+                print(f"Saldo: R${saldoConta:.2f}")
                 print(f"Status: {statusConta}")
                 print("=" * 25)
                 print()
+
 
             elif opc == 2:
                 if statusConta is False:
@@ -65,11 +66,12 @@ while True:
                     print(f"Nome de usuário: {infoConta['nome']}\n"
                           f"Número da conta: {infoConta['numero']}\n"
                           f"Tipo da conta: {infoConta['tipo']}")
-                    print(f"Sado: R${saldoConta:.2f}")
+                    print(f"Saldo: R${saldoConta:.2f}")
                     print(f"Status: {statusConta}")
                     print("=" * 25)
                     print()
                     break
+
 
             elif opc == 3:
                 if saldoConta < 1:
@@ -82,6 +84,7 @@ while True:
                         print(f"Saque de R${saque:.2f} realizado com sucesso!")
                         saldoConta -= saque
 
+
             elif opc == 4:
                 if statusConta is False:
                     print("ERRO: Conta não existente.")
@@ -89,6 +92,7 @@ while True:
                     deposito = float(input("Quanto deseja depositar ? "))
                     saldoConta += deposito
                     print(f"valor de R${deposito:.2f} depositado com sucesso!")
+
 
             elif opc > 5:
                 print("ERRO: Por favor, digite uma opção válida.")
