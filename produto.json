@@ -1,0 +1,19 @@
+{
+    "id_produto": 898,
+    "nome": "Teclado Magnetico",
+    "em_estoque": true,
+    "marca": [
+        "Atack Shark",
+        "Ajazz",
+        "Allow"
+    ],
+    "tags": [
+        "periferico",
+        "gamer",
+        "abnt2"
+    ],
+    "preco": {
+        "padrao": 449.99,
+        "promocional": 399.9
+    }
+}
